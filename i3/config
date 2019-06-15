@@ -211,7 +211,7 @@ assign [class="Rocket.Chat"] → 10
 exec protonmail
 exec rocketchat-desktop
 
-exec_always feh --bg-scale /home/rfmf/Imagens/pacman-wallpaper.jpg
+exec_always feh --bg-scale /home/rfmf/Imagens/space-invaders-wallpaper.jpeg
 
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon

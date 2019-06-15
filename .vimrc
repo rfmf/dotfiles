@@ -2,7 +2,7 @@
 set nocompatible
 
 " Helps force plugins to load correctly when it is turned back on below
-filetype off
+filetype plugin on
 
 "Plugin Manager
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -28,13 +28,16 @@ Plugin 'prabirshrestha/async.vim'
 Plugin 'w0rp/ale'
 Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'bling/vim-bufferline'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ervandew/supertab'
 call vundle#end()
 
 "Vim-Go Shortcuts
-map <C-R> :GoRun<CR>
-map <C-T> :GoTest<CR>
-map <C-B> :GoBuild<CR>
-map <C-D> :GoDebugStart<CR>
+map <C-g> :GoRun<CR>
+
+"JS Node Run File
+nmap <C-c> :w<CR>:!node %<CR>
 
 "Nerdtree
 autocmd StdinReadPre * let s:std_in=1
@@ -50,9 +53,15 @@ let g:ale_linters = {
 	\}
 
 " Ultisnips Configuration
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" - make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" - better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Turn on syntax highlighting
 syntax on
