@@ -3,9 +3,10 @@ set nocompatible
 
 " Helps force plugins to load correctly when it is turned back on below
 filetype plugin on
+filetype indent on
 
 "Plugin Manager
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 
 " Load plugins here
 call vundle#begin()
@@ -21,9 +22,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mattn/emmet-vim'
-Plugin 'dracula/vim', { 'as': 'dracula' }
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'prabirshrestha/async.vim'
 Plugin 'w0rp/ale'
 Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
@@ -31,6 +29,17 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'bling/vim-bufferline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ervandew/supertab'
+Plugin 'vim-latex/vim-latex'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'stephpy/vim-php-cs-fixer'
+Plugin 'ncm2/ncm2'
+Plugin 'phpactor/phpactor'
+Plugin 'phpactor/ncm2-phpactor'
+Plugin 'junegunn/fzf.vim'
+Plugin 'neomake/neomake'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mhinz/vim-signify'
 call vundle#end()
 
 "Vim-Go Shortcuts
@@ -44,8 +53,8 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 
-" Airline Dracula Theme
-let g:airline_theme='violet' 
+" Latex Support
+let g:tex_flavor='latex' 
 
 " Ale Gopls
 let g:ale_linters = {
